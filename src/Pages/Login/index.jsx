@@ -19,7 +19,7 @@ const Login = () => {
   const fetch = async () => {
     try {
       const body = { name, password };
-      const response = await backEndApi.post('http://localhost:3001/login', body);
+      const response = await backEndApi.post('/login', body);
       const data = await response.data;
       console.log(data)
       localStorage.setItem('token', JSON.stringify(data.token));
