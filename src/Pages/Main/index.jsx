@@ -15,7 +15,7 @@ const Main = () => {
   const [tag, setTag] = useState('');
  
   const fetchRepository = async () => {
-    const {data} = await gitHubApi.get(`/users/${user}/repos`, {headers:{"Accept": "application/vnd.github.v3+json"}});
+    const {data} = await gitHubApi.get(`/users/${user}/repos`, {headers:{"Accept": "application/vnd.github.v3+json","Authorization": `${process.env.USER_ID}`}});
     setResponse(data);
   };
 
@@ -52,6 +52,7 @@ const Main = () => {
     if (!window.localStorage.token) {
       history.push('/login');
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   console.log(response)
   return (
