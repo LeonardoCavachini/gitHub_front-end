@@ -20,7 +20,7 @@ const Main = () => {
   };
 
   const userByRepository = async () => {
-    const {data} = await gitHubApi.get(`/repos/${user}/${repo}`, {headers:{"Accept": "application/vnd.github.v3+json"}});
+    const {data} = await gitHubApi.get(`/repos/${user}/${repo}`, {headers:{"Accept": "application/vnd.github.v3+json","Authorization": `${process.env.USER_ID}`}});
     const respArray = [];
     respArray.push(data)
     setResponse(respArray)
